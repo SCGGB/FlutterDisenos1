@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:headers/src/widget/boton._gordo.dart';
+import 'package:headers/src/widget/boton._app.dart';
 import 'package:headers/src/widget/header.dart';
 
 
@@ -10,7 +10,7 @@ class EmergencyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Scaffold(
-        body: Center(child: BotonGordo(),)
+        body: Center(child: BotonApp(),)
       )
    );
   }
