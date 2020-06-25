@@ -14,7 +14,7 @@ class IconHeader extends StatelessWidget {
 
   const IconHeader({
     @required this.icon, 
-    @required this.icon2,
+    this.icon2,
     @required this.titulo, 
     @required this.subtittulo, 
     this.color1  = Colors.grey, //Color(0xff526BF6)
@@ -41,7 +41,7 @@ class IconHeader extends StatelessWidget {
               SizedBox(height: 20,),
               Text(this.subtittulo, style: TextStyle(fontSize: 25, color: colorBlanco,fontWeight: FontWeight.bold))              ,
               SizedBox(height: 20,),
-              FaIcon(this.icon2,size: 50,color: Colors.white)
+              FaIcon(this.icon,size: 50,color: Colors.white)
 
             ],
           )

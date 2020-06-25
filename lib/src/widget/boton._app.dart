@@ -2,29 +2,52 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BotonApp extends StatelessWidget {
+
+  final IconData icon;
+  @required final String texto;
+  final Color color1;
+  final Color color2;
+  @required final Function onPress;
+
+  const BotonApp({
+    this.icon = FontAwesomeIcons.circle, 
+    this.texto,
+     this.color1 = Colors.grey, 
+     this.color2 = Colors.blueGrey, 
+     this.onPress
+     });
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        _BotonBackGround(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(height: 140,width: 40),  
-            FaIcon(FontAwesomeIcons.carCrash,color: Colors.white,size:40),
-            SizedBox(width: 20),
-            Expanded(child: Text('Capitulo 1000', style: TextStyle(color: Colors.white,fontSize: 18))),
-            FaIcon(FontAwesomeIcons.chevronRight,color: Colors.white),
-            SizedBox(width: 40)
-          ],
-        )
-      ],
+    return GestureDetector(
+      onTap: this.onPress,
+          child: Stack(
+        children: <Widget>[
+          _BotonBackGround(this.icon,this.color1,this.color2),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: 140,width: 40),  
+              FaIcon(this.icon,color: Colors.white,size:40),
+              SizedBox(width: 20),
+              Expanded(child: Text(this.texto, style: TextStyle(color: Colors.white,fontSize: 18))),
+              FaIcon(FontAwesomeIcons.chevronRight,color: Colors.white),
+              SizedBox(width: 40)
+            ],
+          )
+        ],
+      ),
     );
   }
 }
 
 class _BotonBackGround extends StatelessWidget {
 
+ final IconData icon;
+  final Color color1;
+  final Color color2;
+
+  const _BotonBackGround( this.icon, this.color1, this.color2);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +60,7 @@ class _BotonBackGround extends StatelessWidget {
             Positioned(
               right: -20,
               top: -20,
-              child: FaIcon(FontAwesomeIcons.carCrash,size: 150, color: Colors.white.withOpacity(0.2)),)
+              child: FaIcon(this.icon,size: 150, color: Colors.white.withOpacity(0.2)),)
           ],
         ),
       ),
@@ -51,8 +74,8 @@ class _BotonBackGround extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       gradient: LinearGradient(
         colors: <Color>[
-          Color(0xff6989F5),
-          Color(0xff906EF5)
+          this.color1,
+          this.color2,
         ]
         )
 
